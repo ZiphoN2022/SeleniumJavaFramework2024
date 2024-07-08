@@ -6,10 +6,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class SauceDemo {
 
     WebDriver driver;
+
+    private static final DecimalFormat decfor = new DecimalFormat("0.00");
 
     // this is the test method
     @Test
@@ -67,10 +71,25 @@ public class SauceDemo {
         Assert.assertEquals(ActualResultForCheckOutOverview, "Checkout: Overview");
         Thread.sleep(waiting_duration);
 
-        //Check If Summary Total is not null
+
+        //Retrieve and Convert Subtotal
+        String ActualSubTotal = driver.findElement(By.xpath("//div[contains(@class,'summary_subtotal_label')]")).getText();
+        double ActualSubTotalConverted = Double.parseDouble(ActualSubTotal.substring(13));
+
+        //8% Tax
+        double Tax = 0.08;
+
+        //Add 8% Tax to Subtotal
+        double ActualSubTotalWithTax = (ActualSubTotalConverted + (ActualSubTotalConverted * Tax));
+
+        //Retrieve and Convert Summary Total
         String ActualSummary_total_label = driver.findElement(By.xpath("//div[contains(@class,'summary_total_label')]")).getText();
-        Assert.assertNotEquals(ActualSummary_total_label, null);
+        double ActualSummary_total_label_converted = Double.parseDouble(ActualSummary_total_label.substring(8));
+
+        //Check If Summary Total Equals to Subtotal with Tax
+        Assert.assertEquals(decfor.format(ActualSummary_total_label_converted), decfor.format(ActualSubTotalWithTax));
         Thread.sleep(waiting_duration);
+
 
         //Click on finish button
         driver.findElement(By.id("finish")).click();
