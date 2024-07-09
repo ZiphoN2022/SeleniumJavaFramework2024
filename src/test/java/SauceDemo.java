@@ -47,6 +47,7 @@ public class SauceDemo {
         driver.findElement(By.xpath("//a[contains(@id,'link')][@class='bm-item menu-item'][contains(.,'Logout')]")).click();
         Thread.sleep(2000);
     }
+    //testing
 
     @AfterTest
     public void closeBrowser() {
