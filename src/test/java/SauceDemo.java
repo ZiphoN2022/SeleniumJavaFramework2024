@@ -45,10 +45,11 @@ public class SauceDemo {
         driver.findElement(By.id("react-burger-menu-btn")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//a[contains(@id,'link')][@class='bm-item menu-item'][contains(.,'Logout')]")).click();
+        Thread.sleep(2000);
     }
 
     @AfterTest
     public void closeBrowser() {
-        //driver.quit();
+        driver.quit();
     }
 }
