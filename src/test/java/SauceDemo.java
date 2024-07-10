@@ -18,8 +18,6 @@ public class SauceDemo {
         WebDriverManager.chromedriver().setup();
 
         driver = new ChromeDriver();
-        //driver= new FirefoxDriver();
-        //driver= new EdgeDriver();
 
         driver.manage().window().maximize();
 
@@ -55,14 +53,17 @@ public class SauceDemo {
         String cartItemNumber = driver.findElement(By.className("shopping_cart_badge")).getText();
         Assert.assertEquals(cartItemNumber, "3");
 
+        driver.findElement(By.xpath("//div[@id='shopping_cart_container']/a")).click(); // click the shopping cart
+
+        driver.findElement(By.id("checkout")).click(); // checkout to the payment page
 
     }
 
     @Test(priority = 4)
-    public void userInfo() {
-        driver.findElement(By.xpath("//div[@id='shopping_cart_container']/a")).click(); // click the shopping cart
+    public void checkOutStepOne() {
 
-        driver.findElement(By.id("checkout")).click(); // checkout to the payment page
+        String checkoutHeaderTitle = driver.findElement(By.xpath("//span[@class='title'][contains(.,'Checkout: Your Information')]")).getText();
+        Assert.assertEquals(checkoutHeaderTitle, "Checkout: Your Information");
 
         driver.findElement(By.id("first-name")).sendKeys("Shepherd");
         driver.findElement(By.id("last-name")).sendKeys("Gwasira");
@@ -74,10 +75,13 @@ public class SauceDemo {
 
 
     @Test(priority = 5)
-    public void checkoutOverview() {
+    public void checkOutStepTwo() {
 
         String cardCode = driver.findElement(By.xpath("//div[@id='checkout_summary_container']/div/div[2]/div[2]")).getText();
         Assert.assertEquals(cardCode, "SauceCard #31337");
+
+        String firstItemQty = driver.findElement(By.xpath("//div[@class='cart_quantity'][contains(.,'1')]")).getText();
+        Assert.assertEquals(firstItemQty, "1");
 
         driver.findElement(By.id("finish")).click();
 
@@ -85,10 +89,14 @@ public class SauceDemo {
     }
 
     @Test(priority = 6)
-    public void thankYou() {
+    public void checkOutComplete() {
 
         String thankText = driver.findElement(By.xpath("//div[@id='checkout_complete_container']/h2")).getText();
         Assert.assertEquals(thankText, "Thank you for your order!");
+
+        driver.findElement(By.id("back-to-products")).click();
+
+
     }
 
 
