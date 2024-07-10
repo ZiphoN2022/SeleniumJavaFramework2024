@@ -11,10 +11,12 @@ public class SauceDemo {
 
     WebDriver driver;
 
-    // this is the testmethod
+    // this is the testm ethod
     @Test
-    public void loginTests() throws InterruptedException {
+    public void loginTests() {
         driver = new ChromeDriver();
+//        driver= new FirefoxDriver();
+//        driver= new EdgeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/"); // This line start the browser
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
