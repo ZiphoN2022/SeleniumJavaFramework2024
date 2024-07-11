@@ -43,7 +43,7 @@ public class SauceDemo {
     }
 
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }
