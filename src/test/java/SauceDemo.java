@@ -1,6 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,8 +6,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+
+import org.openqa.selenium.JavascriptExecutor;
 
 import static org.openqa.selenium.By.*;
 
@@ -35,6 +36,9 @@ public class SauceDemo {
         Thread.sleep(2000);
         String ProductsPage = driver.findElement(xpath("//span[contains(.,'Products')]")).getText();
         Assert.assertEquals(ProductsPage, "Products");
+       /* JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].setAttribute('style', 'background:blue')",ProductsPage );
+*/
         Thread.sleep(4000);
 
 
@@ -71,6 +75,9 @@ public class SauceDemo {
 
         String SummaryPage = driver.findElement(By.xpath("//span[@class='title'][contains(.,'Checkout: Overview')]")).getText();
         Assert.assertEquals(SummaryPage, "Checkout: Overview");
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].setAttribute('style', 'background:blue')", SummaryPage);
         Thread.sleep(4000);
 
         String ActualSubTotal = driver.findElement(By.xpath("//div[contains(@class,'summary_subtotal_label')]")).getText();
