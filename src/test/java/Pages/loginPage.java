@@ -16,6 +16,12 @@ public class loginPage {
     @FindBy(xpath = "//input[contains(@id,'user-name')]")
     WebElement username_xpath;
 
+    @FindBy(xpath = "//input[contains(@id,'password')]")
+    WebElement password_xpath;
+
+    @FindBy(xpath = "//input[contains(@id,'login-button')]")
+    WebElement loginButton_xpath;
+
     //ToDo create code to enter password
     //ToDo create code to click Login button
 
@@ -28,6 +34,21 @@ public class loginPage {
     public void enterUsername(String username){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(username_xpath));
         username_xpath.sendKeys(username);
+    }
+
+
+    public void enterPassword(String password){
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(password_xpath));
+        password_xpath.sendKeys(password);
+
+    }
+
+
+    public  void clickLoginButton(){
+
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(loginButton_xpath));
+        loginButton_xpath.click();
+
     }
 
 
