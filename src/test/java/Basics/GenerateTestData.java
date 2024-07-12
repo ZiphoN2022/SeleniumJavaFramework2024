@@ -1,3 +1,5 @@
+package Basics;
+
 import com.github.javafaker.Faker;
 import org.testng.annotations.Test;
 
