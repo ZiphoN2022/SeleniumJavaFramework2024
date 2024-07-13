@@ -40,7 +40,7 @@ public class loginPage {
         password_xpath.sendKeys(password);
     }
 
-    public void pressLogin (Button login){
+    public void pressLogin (String login){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(login_xpath));
         login_xpath.click();
     }
