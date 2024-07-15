@@ -78,7 +78,7 @@ public class SauceDemo {
         //driver.findElement(By.id("back-to-products")).click();
 
 
-        //ToDo create the coe to cater for the rest of the jurney
+        //ToDo create the coe to cater for the rest of the journey
 
     }
 
