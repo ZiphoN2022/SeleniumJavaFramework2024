@@ -1,8 +1,8 @@
+package Basics;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -11,15 +11,14 @@ public class SauceDemo {
 
     WebDriver driver;
 
-    // this is the testm ethod
+    // this is the testmethod
     @Test
     public void loginTests() throws InterruptedException {
         double backItem;
         double lightItem;
         double subTotal;
+    public void loginTests() throws InterruptedException {
         driver = new ChromeDriver();
-//        driver= new FirefoxDriver();
-//        driver= new EdgeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/"); // This line start the browser
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
