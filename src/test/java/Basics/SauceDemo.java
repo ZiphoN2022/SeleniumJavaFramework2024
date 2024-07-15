@@ -17,7 +17,7 @@ public class SauceDemo {
         double backItem;
         double lightItem;
         double subTotal;
-    public void loginTests() throws InterruptedException {
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/"); // This line start the browser
@@ -82,7 +82,7 @@ public class SauceDemo {
     }
 
    // @AfterTest
-  //  public void closeBrowser(){
+  //  public void closeBrowser() {
    //     driver.quit();
   //  }
 }
