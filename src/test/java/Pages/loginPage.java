@@ -37,11 +37,11 @@ public class loginPage {
     }
 
     public void enterPassword(String password){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(password_xpath));
+        //new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(password_xpath));
         password_xpath.sendKeys(password);
     }
     public void clickLogin(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(login_xpath));
+       // new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(login_xpath));
         login_xpath.click();
 
     }
