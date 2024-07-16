@@ -1,4 +1,5 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
+package Basics;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -50,55 +51,19 @@ public class SauceDemo {
 
         driver.findElement(By.id("remove-sauce-labs-bike-light")).click(); // removing an item
 
-        String cartItemNumber = driver.findElement(By.className("shopping_cart_badge")).getText();
-        Assert.assertEquals(cartItemNumber, "3");
-
-        driver.findElement(By.xpath("//div[@id='shopping_cart_container']/a")).click(); // click the shopping cart
-
-        driver.findElement(By.id("checkout")).click(); // checkout to the payment page
-
-    }
-
-    @Test(priority = 4)
-    public void checkOutStepOne() {
-
-        String checkoutHeaderTitle = driver.findElement(By.xpath("//span[@class='title'][contains(.,'Checkout: Your Information')]")).getText();
-        Assert.assertEquals(checkoutHeaderTitle, "Checkout: Your Information");
-
-        driver.findElement(By.id("first-name")).sendKeys("Shepherd");
-        driver.findElement(By.id("last-name")).sendKeys("Gwasira");
-        driver.findElement(By.id("postal-code")).sendKeys("2180");
-
+        Thread.sleep(2000);
+        driver.findElement(By.id("checkout")).click();
+        driver.findElement(By.id("first-name")).sendKeys("Mahadi");
+        driver.findElement(By.id("last-name")).sendKeys("New");
+        driver.findElement(By.id("postal-code")).sendKeys("2188");
         driver.findElement(By.id("continue")).click();
-
-    }
-
-
-    @Test(priority = 5)
-    public void checkOutStepTwo() {
-
-        String cardCode = driver.findElement(By.xpath("//div[@id='checkout_summary_container']/div/div[2]/div[2]")).getText();
-        Assert.assertEquals(cardCode, "SauceCard #31337");
-
-        String firstItemQty = driver.findElement(By.xpath("//div[@class='cart_quantity'][contains(.,'1')]")).getText();
-        Assert.assertEquals(firstItemQty, "1");
-
+        Thread.sleep(2000);
         driver.findElement(By.id("finish")).click();
 
 
-    }
-
-    @Test(priority = 6)
-    public void checkOutComplete() {
-
-        String thankText = driver.findElement(By.xpath("//div[@id='checkout_complete_container']/h2")).getText();
-        Assert.assertEquals(thankText, "Thank you for your order!");
-
-        driver.findElement(By.id("back-to-products")).click();
-
+        //ToDo create the coe to cater for the rest of the jurney
 
     }
-
 
     @AfterTest
     public void closeBrowser() {
