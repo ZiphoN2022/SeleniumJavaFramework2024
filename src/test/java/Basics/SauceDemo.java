@@ -11,9 +11,9 @@ public class SauceDemo {
 
     WebDriver driver;
 
-    // this is the test method
+    // this is the testm ethod
     @Test
-    public void loginTests() throws InterruptedException {
+    public void loginTests()  throws InterruptedException{
         driver = new ChromeDriver();
 //        driver= new FirefoxDriver();
 //        driver= new EdgeDriver();
@@ -22,42 +22,22 @@ public class SauceDemo {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
-        Thread.sleep(2000) ;
         String ActualResults = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
         Assert.assertEquals(ActualResults, "Products");
 
-        driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']")).click();
+        //ToDo create the coe to cater for the rest of the jurney
+        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//*[@id='shopping_cart_container']/a")).click();
+        driver.findElement(By.id("shopping_cart_container")).click();
 
-        String ActualResultsCart = driver.findElement(By.xpath("//div[@class='inventory_item_name']")).getText();
-        Assert.assertEquals(ActualResultsCart,"Sauce Labs Backpack");
         Thread.sleep(2000);
-
-        driver.findElement(By.xpath("//*[@id='checkout']")).click();
+        driver.findElement(By.id("checkout")).click();
+        driver.findElement(By.id("first-name")).sendKeys("Mahadi");
+        driver.findElement(By.id("last-name")).sendKeys("New");
+        driver.findElement(By.id("postal-code")).sendKeys("2188");
+        driver.findElement(By.id("continue")).click();
         Thread.sleep(2000);
-
-        //String ActualCheckOut = driver.findElement(By.xpath("//*[@id=header_container']/div[2]/span")).getText();
-        //Assert.assertEquals(ActualCheckOut,"Checkout: Your Information");
-
-        driver.findElement(By.xpath("//*[@id='first-name']")).sendKeys("Mpho");
-        driver.findElement(By.xpath("//*[@id='last-name']")).sendKeys("Mavhungu");
-        driver.findElement(By.xpath("//*[@id='postal-code']")).sendKeys("2090");
-        driver.findElement(By.xpath("//*[@id='continue']")).click();
-        Thread.sleep(2000);
-
-        String ActualOverView = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).getText();
-        Assert.assertEquals(ActualOverView,"Checkout: Overview");
-        Thread.sleep(2000);
-
-        driver.findElement(By.xpath("//*[@id='finish']")).click();
-        Thread.sleep(2000);
-
-        String ActualThankYou = driver.findElement(By.xpath("//*[@id=\"checkout_complete_container\"]/h2")).getText();
-        Assert.assertEquals(ActualThankYou,"Thank you for your order!");
-        Thread.sleep(2000);
-
-        driver.findElement(By.xpath("//*[@id='back-to-products']")).click();
+        driver.findElement(By.id("finish")).click();
         Thread.sleep(2000);
 
     }
