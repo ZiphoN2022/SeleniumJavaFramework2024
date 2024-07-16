@@ -1,5 +1,6 @@
 package Basics;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -51,13 +52,13 @@ public class SauceDemo {
 
         driver.findElement(By.id("remove-sauce-labs-bike-light")).click(); // removing an item
 
-        Thread.sleep(2000);
+
         driver.findElement(By.id("checkout")).click();
         driver.findElement(By.id("first-name")).sendKeys("Mahadi");
         driver.findElement(By.id("last-name")).sendKeys("New");
         driver.findElement(By.id("postal-code")).sendKeys("2188");
         driver.findElement(By.id("continue")).click();
-        Thread.sleep(2000);
+
         driver.findElement(By.id("finish")).click();
 
 
