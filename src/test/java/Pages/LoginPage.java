@@ -16,9 +16,11 @@ public class LoginPage {
     @FindBy(xpath = "//input[contains(@id,'user-name')]")
     WebElement username_xpath;
 
-    //ToDo create code to enter password
-    //ToDo create code to click Login button
+    @FindBy(xpath = "//input[contains(@id,'password')]")
+    WebElement password_xpath;
 
+    @FindBy(id = "login-button")
+    WebElement loginButton_id;
 
 
     public LoginPage(WebDriver driver){
