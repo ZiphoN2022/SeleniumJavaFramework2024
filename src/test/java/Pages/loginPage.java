@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +18,8 @@ public class loginPage {
     WebElement username_xpath;
 
     @FindBy(xpath = "//input[contains(@id,'password')]") WebElement password_xpath;
-    //ToDo create code to click Login button
+
+    @FindBy(xpath = "//input[contains(@id,'login-button')]") WebElement login_xpath;
 
 
 
@@ -35,6 +37,11 @@ public class loginPage {
         password_xpath.sendKeys(password);
     }
 
+    public void clickLogin(){
+        //driver.findElement(By.id("login-button")).click();
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(username_xpath));
+        password_xpath.click();
+    }
 
 
 }
