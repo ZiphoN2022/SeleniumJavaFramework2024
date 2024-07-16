@@ -13,7 +13,7 @@ public class SauceDemo {
 
     // this is the testm ethod
     @Test
-    public void loginTests() {
+    public void loginTests()  throws InterruptedException{
         driver = new ChromeDriver();
 //        driver= new FirefoxDriver();
 //        driver= new EdgeDriver();
@@ -24,6 +24,8 @@ public class SauceDemo {
         driver.findElement(By.id("login-button")).click();
         String ActualResults = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
         Assert.assertEquals(ActualResults, "Products");
+
+        //ToDo create the coe to cater for the rest of the jurney
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         Thread.sleep(2000);
         driver.findElement(By.id("shopping_cart_container")).click();
@@ -36,14 +38,12 @@ public class SauceDemo {
         driver.findElement(By.id("continue")).click();
         Thread.sleep(2000);
         driver.findElement(By.id("finish")).click();
-
-
-        //ToDo create the coe to cater for the rest of the jurney
+        Thread.sleep(2000);
 
     }
 
     @AfterTest
-    public void closeBrowser() {
+    public void closeBrowser(){
         driver.quit();
     }
 }
