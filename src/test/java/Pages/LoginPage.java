@@ -21,10 +21,6 @@ public class loginPage {
     @FindBy(id = "login-button")
     WebElement loginButton_id;
 
-    //ToDo create code to enter password
-    //ToDo create code to click Login button
-
-
 
     public LoginPage(WebDriver driver){
         this.driver=driver;
