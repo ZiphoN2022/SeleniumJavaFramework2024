@@ -21,15 +21,6 @@ public class LoginPage {
     @FindBy(id = "login-button")
     WebElement loginButton_id;
 
-    //ToDo create code to enter password
- //   @FindBy(xpath = "//input[contains(@id,'password')]")
- //   WebElement password_xpath;
-
-    //ToDo create code to click Login button
-  @FindBy(xpath = "//input[contains(@id,'login')]")
-   WebElement login_xpath;
-
-
 
     public LoginPage(WebDriver driver){
         this.driver=driver;
@@ -37,15 +28,7 @@ public class LoginPage {
 
     public void enterUsername(String username){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(username_xpath));
-        username_xpath.sendKeys();
-    }
-    public void password(String password, WebElement password_xpath){
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(password_xpath));
-        password_xpath.sendKeys();
-    }
-    public void login(){
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(login_xpath));
-        login_xpath.click();
+        username_xpath.sendKeys(username);
     }
 
     public void enterPassword(String password){
