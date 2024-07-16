@@ -33,5 +33,13 @@ public class LoginPage {
     }
 
 
+    public  void enterPassword(String password){
+        password_xpath.sendKeys(password);
+    }
+
+    public void clickLogin(){
+        loginButton_id.click();
+    }
+
 
 }
