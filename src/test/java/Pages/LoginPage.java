@@ -22,12 +22,12 @@ public class LoginPage {
     WebElement loginButton_id;
 
     //ToDo create code to enter password
-    @FindBy(xpath = "//input[contains(@id,'password')]")
-    WebElement password_xpath;
+ //   @FindBy(xpath = "//input[contains(@id,'password')]")
+ //   WebElement password_xpath;
 
     //ToDo create code to click Login button
-    @FindBy(xpath = "//input[contains(@id,'login')]")
-    WebElement login_xpath;
+  @FindBy(xpath = "//input[contains(@id,'login')]")
+   WebElement login_xpath;
 
 
 
