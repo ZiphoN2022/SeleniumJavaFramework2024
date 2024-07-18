@@ -12,7 +12,7 @@ public class HomePage {
     @FindBy(xpath = "//span[@class='title'][contains(.,'Products')]")
     WebElement productTitle_xpath;
 
-    public HomePage(WebDriver driver){this.driver=driver}
+    public HomePage(WebDriver driver){this.driver=driver;}
 
     public  void verifyProductTitleIsDisplayed(){
         String productTitle =  productTitle_xpath.getText();
