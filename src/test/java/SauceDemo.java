@@ -13,7 +13,7 @@ public class SauceDemo {
 
     // this is the testm ethod
     @Test
-    public void loginTests() {
+    public void loginTests() throws InterruptedException {
         driver = new ChromeDriver();
 //        driver= new FirefoxDriver();
 //        driver= new EdgeDriver();
