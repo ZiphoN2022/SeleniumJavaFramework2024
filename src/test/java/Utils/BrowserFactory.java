@@ -1,5 +1,6 @@
 package Utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,6 +14,7 @@ public class BrowserFactory {
 
     @BeforeTest
     public static WebDriver startBrowser(String browserChoice, String url) {
+        WebDriverManager.chromedriver().setup();
         if (browserChoice.equalsIgnoreCase("Chrome")) {
             driver = new ChromeDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {

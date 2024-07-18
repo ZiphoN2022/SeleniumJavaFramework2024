@@ -1,5 +1,7 @@
 package Tests;
 
+import Pages.CartPage;
+import Pages.InventoryPage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
 import org.openqa.selenium.WebDriver;
@@ -15,5 +17,7 @@ public class Base {
 
     LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
+    InventoryPage inventoryPage = PageFactory.initElements(driver, InventoryPage.class);
+    CartPage cartPage = PageFactory.initElements(driver,CartPage.class);
 
 }
