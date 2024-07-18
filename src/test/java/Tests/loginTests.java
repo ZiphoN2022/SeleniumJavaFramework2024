@@ -4,27 +4,29 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class loginTests extends Base{
+public class loginTests extends Base {
 
-    public void enterUsernameTests(){
+    public void enterUsernameTests() {
         loginPage.enterUsername("standard_user");
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests(){
+    public void enterPasswordTests() {
         loginPage.enterPassword("secret_sauce");
     }
+
     @Test(dependsOnMethods = "enterPasswordTests")
-    public void clickLoginButtonTests(){
+    public void clickLoginButtonTests() {
         loginPage.clickLogin();
     }
+
     @Test(dependsOnMethods = "clickLoginButtonTests")
-    public void verfyProductIsDisolayed(){
+    public void verifyProductIsDisplayed() {
         homePage.verifyProductTitleIsDisplayed();
     }
 
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }
