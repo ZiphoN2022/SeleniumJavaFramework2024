@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class test {
 
- {
+
 
     Faker faker = new Faker();
 
@@ -15,7 +15,8 @@ public class test {
     String animalNames=faker.animal().name();
 
     @Test
-    public void tests(){
+    public void test()
+ {
         System.out.println(firstName);
         System.out.println(surname);
         System.out.println(zipcode);
