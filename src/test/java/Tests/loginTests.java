@@ -25,6 +25,7 @@ public class loginTests extends Base {
         homePage.verifyProductTitleIsDisplayed();
     }
 
+
     @AfterTest
     public void closeBrowser() {
         driver.quit();
