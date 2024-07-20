@@ -7,16 +7,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-public class SauceDemo {
+public class sauceDemo {
 
     WebDriver driver;
 
-    // this is the testm ethod
+    // this is the testmethod
     @Test
     public void loginTests()  throws InterruptedException{
         driver = new ChromeDriver();
-//        driver= new FirefoxDriver();
-//        driver= new EdgeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/"); // This line start the browser
         driver.findElement(By.id("user-name")).sendKeys("standard_user");

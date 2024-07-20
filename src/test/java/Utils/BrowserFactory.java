@@ -11,7 +11,7 @@ public class BrowserFactory {
 
     static WebDriver driver;
 
-    @BeforeTest
+    @Test
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("Chrome")) {
             driver = new ChromeDriver();
