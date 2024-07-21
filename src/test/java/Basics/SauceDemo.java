@@ -25,7 +25,7 @@ public class SauceDemo {
         String ActualResults = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
         Assert.assertEquals(ActualResults, "Products");
 
-        //ToDo create the coe to cater for the rest of the jurney
+        //ToDo create the coe to cater for the rest of the journey
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
         Thread.sleep(2000);
         driver.findElement(By.id("shopping_cart_container")).click();
