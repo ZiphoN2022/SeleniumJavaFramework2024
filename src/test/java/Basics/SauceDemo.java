@@ -17,6 +17,7 @@ public class SauceDemo {
         driver = new ChromeDriver();
 //        driver= new FirefoxDriver();
 //        driver= new EdgeDriver();
+        Testing Merge
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/"); // This line start the browser
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
