@@ -7,7 +7,9 @@ public class GenerateTestData {
 
     String firstName= faker.name().firstName();
     String surname =faker.name().lastName();
-@Test new public void(){
+@Test new
+
+    public void(){
         system.out.println(firstName);   }}
 
 
