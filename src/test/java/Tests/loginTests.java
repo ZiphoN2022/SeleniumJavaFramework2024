@@ -29,6 +29,8 @@ public class loginTests extends Base {
         takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
+    //ToDo read data from faker library
+
     @AfterTest
     public void closeBrowser() {
         driver.quit();
