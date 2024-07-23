@@ -11,7 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
-
+*.TestData.xlsx
 ### Eclipse ###
 .apt_generated
 .classpath
