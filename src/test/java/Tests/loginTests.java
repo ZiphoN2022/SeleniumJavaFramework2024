@@ -1,18 +1,20 @@
 package Tests;
 
+import Pages.HomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
 public class loginTests extends Base {
 
+
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readData.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readData.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
@@ -21,10 +23,9 @@ public class loginTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickLoginButtonTests")
-    public void verifyProductIsDisplayed() {
+    public void verfyProductIsDisolayed() {
         homePage.verifyProductTitleIsDisplayed();
     }
-
 
     @AfterTest
     public void closeBrowser() {
