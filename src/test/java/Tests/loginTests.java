@@ -19,12 +19,14 @@ public class loginTests extends Base {
 
     @Test(dependsOnMethods = "enterPasswordTests")
     public void clickLoginButtonTests() {
+        takesScreenshots.takesSnapShot(driver,"Login Page");
         loginPage.clickLogin();
     }
 
     @Test(dependsOnMethods = "clickLoginButtonTests")
     public void verfyProductIsDisolayed() {
         homePage.verifyProductTitleIsDisplayed();
+        takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
     @AfterTest
