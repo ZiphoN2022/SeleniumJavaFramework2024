@@ -31,7 +31,7 @@ public class CheckoutPage {
     @FindBy(id = "cancel")
     WebElement cancelButton_id;
 
-    public void CartPage(WebDriver driver){this.driver = driver;}
+    public  CheckoutPage(WebDriver driver){this.driver = driver;}
 
     public void enterFirstName(String firstName){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(firstName_id));

@@ -18,6 +18,8 @@ public class Base {
     CartPage cartPage = PageFactory.initElements(driver,CartPage.class);
 
     CheckoutPage checkoutPage = PageFactory.initElements(driver,CheckoutPage.class);
+    CheckoutPageStepTwo checkoutPageStepTwo = PageFactory.initElements(driver, CheckoutPageStepTwo.class);
+    CheckoutComplete checkoutComplete = PageFactory.initElements(driver,CheckoutComplete.class);
 
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
     TakesScreenshots takesScreenshots = new TakesScreenshots();

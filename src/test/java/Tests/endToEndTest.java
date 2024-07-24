@@ -1,7 +1,11 @@
 package Tests;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 @Test
 public class endToEndTest extends Base {
@@ -91,6 +95,37 @@ public class endToEndTest extends Base {
     @Test(dependsOnMethods = "enterPostalCodeTest")
     public void clickContinueTest() {
         checkoutPage.clickContinueButton();
+    }
+
+    //checkout step two page testing
+
+    @Test(dependsOnMethods = "clickContinueTest")
+    public  void verifyCheckoutOverviewTitleTest(){
+        checkoutPageStepTwo.verifyCheckoutOverviewTitle();
+        takesScreenshots.takesSnapShot(driver,"checkoutOverviewPageTitle", screenShortFolderPath);
+    }
+
+    @Test(dependsOnMethods = "verifyCheckoutOverviewTitleTest")
+    public void clickFinishButtonTest(){
+        checkoutPageStepTwo.clickFinishButton();
+    }
+
+    //checkout complete page testing
+
+    @Test(dependsOnMethods = "clickFinishButtonTest")
+    public void verifyCheckoutCompleteTitleTest(){
+        checkoutComplete.verifyCheckoutCompleteTitle();
+        takesScreenshots.takesSnapShot(driver,"checkoutComplete", screenShortFolderPath);
+    }
+
+    @Test(dependsOnMethods = "verifyCheckoutCompleteTitleTest")
+    public void verifyCheckoutCompleteThankYouTextTest(){
+        checkoutComplete.verifyThankYouText();
+    }
+
+    @Test(dependsOnMethods = "verifyCheckoutCompleteThankYouTextTest")
+    public void clickBackToProductTest(){
+        checkoutComplete.clickBackHomeButton();
     }
 
 }
