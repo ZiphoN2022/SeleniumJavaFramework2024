@@ -1,31 +1,39 @@
 package Tests;
 
+import com.github.javafaker.Faker;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class loginTests extends Base{
+public class loginTests extends Base {
 
 
-    public void enterUsernameTests(){
+    private String screenShortFolderPath = "/login Tests";
+
+    public void enterUsernameTests() {
         loginPage.enterUsername("standard_user");
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
-    public void enterPasswordTests(){
+    public void enterPasswordTests() {
         loginPage.enterPassword("secret_sauce");
     }
+
     @Test(dependsOnMethods = "enterPasswordTests")
-    public void clickLoginButtonTests(){
+    public void clickLoginButtonTests() {
+        takesScreenshots.takesSnapShot(driver, "Enter User Details", screenShortFolderPath);
         loginPage.clickLogin();
     }
+
     @Test(dependsOnMethods = "clickLoginButtonTests")
-    public void verifyProductIsDisplayed(){
+    public void verifyProductIsDisplayed() {
         homePage.verifyProductTitleIsDisplayed();
+        takesScreenshots.takesSnapShot(driver, "product Title Verification", screenShortFolderPath);
     }
 
+
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }
