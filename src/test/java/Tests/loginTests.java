@@ -24,7 +24,7 @@ public class loginTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickLoginButtonTests")
-    public void verfyProductIsDisolayed() {
+    public void verifyProductIsDisplayed() {
         homePage.verifyProductTitleIsDisplayed();
         takesScreenshots.takesSnapShot(driver,"Home Page");
     }

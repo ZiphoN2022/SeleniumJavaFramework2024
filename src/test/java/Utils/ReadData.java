@@ -22,7 +22,7 @@ public class ReadData {
     XSSFSheet sheet =workbook.getSheet("Login Details");
 
     public String username =sheet.getRow(1).getCell(0).getStringCellValue();
-    public String password =sheet.getRow(1).getCell(0).getStringCellValue();
+    public String password =sheet.getRow(1).getCell(1).getStringCellValue();
 
     @Test
     public void test(){
