@@ -26,6 +26,7 @@ public class EndToEndTests extends Base {
     @Test(dependsOnMethods = "clickLoginButtonTests")
     public void verifyProductTitleIsDisplayedTest() {
         homePage.verifyProductTitleIsDisplayed();
+        takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
     @Test(dependsOnMethods = "verifyProductTitleIsDisplayedTest")
@@ -50,6 +51,7 @@ public class EndToEndTests extends Base {
 
     @Test(dependsOnMethods = "verifyBikeLightItemIsAddedToCart")
     public  void clickCartIcon() {
+        takesScreenshots.takesSnapShot(driver,"Cart Items");
         homePage.clickCartIcon();
     }
 
@@ -61,6 +63,7 @@ public class EndToEndTests extends Base {
 
         @Test(dependsOnMethods = "verifyBackpackItemIsStillInCart")
         public void clickCheckoutButton() {
+            takesScreenshots.takesSnapShot(driver,"Cart Content");
             cartPage.clickCheckoutButton();
         }
     @Test(dependsOnMethods = "clickCheckoutButton")
@@ -70,6 +73,7 @@ public class EndToEndTests extends Base {
     @Test(dependsOnMethods = "verifyCheckoutPageTitle")
     public void enterShippingName(){
         checkoutPage.enterShippingName();
+        takesScreenshots.takesSnapShot(driver,"Shipping Page");
     }
     @Test(dependsOnMethods = "enterShippingName")
     public void enterShippingSurname(){
@@ -81,6 +85,7 @@ public class EndToEndTests extends Base {
     }
     @Test(dependsOnMethods = "enterShippingAddress")
     public void clickShippingContinueButton(){
+        takesScreenshots.takesSnapShot(driver,"Shipping Details");
         checkoutPage.clickShippingContinueButton();
     }
 
@@ -102,12 +107,14 @@ public class EndToEndTests extends Base {
     }
     @Test(dependsOnMethods = "verifyTotalAmount")
     public void clickFinishButton(){
+        takesScreenshots.takesSnapShot(driver,"Items Total");
         itemsOverviewPage.clickFinishButton();
     }
 
     @Test(dependsOnMethods = "clickFinishButton")
     public void verifyConfirmationOrderText(){
         itemsOverviewPage.verifyConfirmationOrderText();
+        takesScreenshots.takesSnapShot(driver,"Order Confirmed");
     }
 
 
