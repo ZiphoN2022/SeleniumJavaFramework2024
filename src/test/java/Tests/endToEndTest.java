@@ -1,13 +1,8 @@
 package Tests;
 
-import Pages.HomePage;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-@Test
-public class loginTests extends Base {
-
-
+public class endToEndTest extends Base {
     public void enterUsernameTests() {
         loginPage.enterUsername(readData.username);
     }
@@ -29,10 +24,14 @@ public class loginTests extends Base {
         takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
-    //ToDo read data from faker library
-
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
+    @Test(dependsOnMethods = "add-to-cart-sauce-labs-backpack")
+    public void clickAddButton(){
+        productsPage.clickAddProduct();
     }
+
+    @Test(dependsOnMethods = "shopping_cart_container")
+    public void clickCartButton(){
+        productsPage.clickCart;
+    }
+
 }

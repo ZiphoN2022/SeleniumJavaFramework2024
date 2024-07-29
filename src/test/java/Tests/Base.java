@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.ProductsPage;
 import Utils.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -18,6 +19,9 @@ public class Base {
 
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
     TakesScreenshots takesScreenshots = new TakesScreenshots();
+
+    ProductsPage productsPage =PageFactory.initElements(driver, ProductsPage.class);
+    TakesScreenshots takesScreenshots1 = new TakesScreenshots();
 
     ReadData readData;
 

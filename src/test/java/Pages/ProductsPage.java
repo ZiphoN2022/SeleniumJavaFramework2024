@@ -14,15 +14,21 @@ public class ProductsPage {
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     WebElement addToCart_id;
-
+    @FindBy (id = "shopping_cart_container")
+    WebElement clickCart_id;
 
 
     public ProductsPage(WebDriver driver){
         this.driver=driver;
     }
 
-    public void clickAddProduct(){
+    public void clickAddProduct() {
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(addToCart_id));
         addToCart_id.click();
     }
+
+    public void clickShoppingCart() {
+        clickCart_id.click();
+    }
+
 }
