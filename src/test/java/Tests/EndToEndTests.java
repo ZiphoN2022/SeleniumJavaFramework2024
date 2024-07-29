@@ -84,4 +84,31 @@ public class EndToEndTests extends Base {
         checkoutPage.clickShippingContinueButton();
     }
 
+    @Test(dependsOnMethods = "clickShippingContinueButton")
+    public void verifyOverviewPageTitle(){
+        itemsOverviewPage.verifyOverviewPageTitle();
+    }
+    @Test(dependsOnMethods = "verifyOverviewPageTitle")
+    public void verifySubTotalAmount(){
+        itemsOverviewPage.verifySubTotalAmount();
+    }
+    @Test(dependsOnMethods = "verifySubTotalAmount")
+    public void verifyTaxForPurchase(){
+        itemsOverviewPage.verifyTaxForPurchase();
+    }
+    @Test(dependsOnMethods = "verifyTaxForPurchase")
+    public void verifyTotalAmount(){
+        itemsOverviewPage.verifyTotalAmount();
+    }
+    @Test(dependsOnMethods = "verifyTotalAmount")
+    public void clickFinishButton(){
+        itemsOverviewPage.clickFinishButton();
+    }
+
+    @Test(dependsOnMethods = "clickFinishButton")
+    public void verifyConfirmationOrderText(){
+        itemsOverviewPage.verifyConfirmationOrderText();
+    }
+
+
 }
