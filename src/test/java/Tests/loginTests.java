@@ -64,7 +64,7 @@ public class loginTests extends Base {
 
     @Test(dependsOnMethods = "clickCheckOut")
     public void verityCheckoutInformation(){
-        checkoutPage.verifyCheckoputInfo();
+        checkoutPage.verifyCheckoutInfo();
         awaitMethod();
     }
 
@@ -79,6 +79,18 @@ public class loginTests extends Base {
     public void clickContinue(){
         checkoutPage.continueBtn();
         awaitMethod();
+    }
+
+    @Test(dependsOnMethods = "clickContinue")
+    public void verifyCheckoutOverView(){
+        checkoutPage.verifyCheckoutOverview();
+        awaitMethod();
+    }
+    @Test(dependsOnMethods = "verifyCheckoutOverView")
+    public void verifyItemsInCheckout(){
+        checkoutPage.verifyItemsInCheckout();
+        awaitMethod();
+        takesScreenshots.takesSnapShot(driver, "Verify Products in Checkout");
     }
 
 

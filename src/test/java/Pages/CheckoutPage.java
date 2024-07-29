@@ -25,8 +25,15 @@ public class CheckoutPage extends generateTestData {
     @FindBy(xpath = "//input[contains(@id,'continue')]")
     WebElement continue_xpath;
 
+    @FindBy(xpath = "//span[@class='title'][contains(.,'Checkout: Overview')]")
+    WebElement checkoutOverview_xpath;
 
-    public void verifyCheckoputInfo(){
+    @FindBy(xpath = "//span[@class='shopping_cart_badge'][contains(.,'2')]")
+    WebElement shoppingCart_xpath;
+
+
+
+    public void verifyCheckoutInfo(){
         String checkoutInfo = checkoutInfo_xpath.getText();
         Assert.assertEquals(checkoutInfo, "Checkout: Your Information");
     }
@@ -41,6 +48,16 @@ public class CheckoutPage extends generateTestData {
         continue_xpath.click();
     }
 
+    public void verifyCheckoutOverview(){
+        String checkoutOverview = checkoutOverview_xpath.getText();
+        Assert.assertEquals(checkoutOverview, "Checkout: Overview");
+    }
+
+    public void verifyItemsInCheckout(){
+        int numberOfItems = Integer.parseInt(shoppingCart_xpath.getText());
+        Assert.assertNotEquals(numberOfItems,0);
+
+    }
 
 
 
