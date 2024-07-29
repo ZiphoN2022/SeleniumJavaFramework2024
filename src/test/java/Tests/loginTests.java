@@ -93,6 +93,11 @@ public class loginTests extends Base {
         takesScreenshots.takesSnapShot(driver, "Verify Products in Checkout");
     }
 
+    @Test(dependsOnMethods = "verifyItemsInCheckout")
+    public void verifyItemTotalPlusTaxEqualsToTotal(){
+        checkoutPage.verifyItemTotalPlusTaxEqualsToTotal();
+    }
+
 
 
 

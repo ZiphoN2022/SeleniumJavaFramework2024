@@ -32,6 +32,11 @@ public class CheckoutPage extends generateTestData {
     WebElement shoppingCart_xpath;
 
 
+    @FindBy(xpath = "//div[@class='summary_subtotal_label'][contains(.,'Item total: $39.98')]")
+    WebElement actualSubTotal_xpath;
+
+    @FindBy(xpath = "//div[@class='summary_total_label'][contains(.,'Total: $43.18')]")
+    WebElement actualSummary_total_label_xpath;
 
     public void verifyCheckoutInfo(){
         String checkoutInfo = checkoutInfo_xpath.getText();
@@ -56,9 +61,23 @@ public class CheckoutPage extends generateTestData {
     public void verifyItemsInCheckout(){
         int numberOfItems = Integer.parseInt(shoppingCart_xpath.getText());
         Assert.assertNotEquals(numberOfItems,0);
-
     }
 
+    public void verifyItemTotalPlusTaxEqualsToTotal(){
+
+        String ActualSubTotal = actualSubTotal_xpath.getText();
+        double ActualSubTotalConverted = Double.parseDouble(ActualSubTotal.substring(13));
+
+        double Tax = 0.08;
+        double ActualSubTotalWithTax = (ActualSubTotalConverted + (ActualSubTotalConverted * Tax));
+        String strActualSubTotalWithTax = String.format("%1.2f", ActualSubTotalWithTax);
+        ActualSubTotalWithTax = Double.parseDouble(strActualSubTotalWithTax);
+
+        String ActualSummary_total_label = actualSummary_total_label_xpath.getText();
+        double ActualSummary_total_labelConveted = Double.parseDouble(ActualSummary_total_label.substring(8));
+
+        Assert.assertEquals(ActualSummary_total_labelConveted, ActualSubTotalWithTax);
+    }
 
 
 
