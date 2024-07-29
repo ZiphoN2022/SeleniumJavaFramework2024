@@ -3,47 +3,54 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.time.Duration;
 
-public class loginPage {
+public class LoginPage {
 
     WebDriver driver;
 
     @FindBy(xpath = "//input[contains(@id,'user-name')]")
     WebElement username_xpath;
 
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(xpath = "//input[contains(@id,'password')]")
     WebElement password_xpath;
 
-    @FindBy(xpath = "//input[contains(@id,'login-button')]")
-    WebElement login_xpath;
+    @FindBy(id = "login-button")
+    WebElement loginButton_id;
 
-    public loginPage(WebDriver driver){
+    @FindBy(xpath = "//h3[@data-test='error'][contains(.,'Epic sadface: Username and password do not match any user in this service')]")
+    WebElement loginError_xpath;
+
+
+    public LoginPage(WebDriver driver){
         this.driver=driver;
     }
 
     public void enterUsername(String username){
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(username_xpath));
+        username_xpath.clear();
         username_xpath.sendKeys(username);
     }
-    //ToDo create code to enter password
 
     public void enterPassword(String password){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(password_xpath));
+        password_xpath.clear();
         password_xpath.sendKeys(password);
     }
 
-    //ToDo create code to click Login button
-
     public void clickLogin(){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(login_xpath));
-        login_xpath.click();
-
+        loginButton_id.click();
     }
+
+    public void verifyErrorMessageInLogin() {
+
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(loginError_xpath));
+        loginError_xpath.isDisplayed();
+    }
+
 
 
 
