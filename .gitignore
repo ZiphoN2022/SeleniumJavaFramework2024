@@ -11,7 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
-
+test-output/
 ### Eclipse ###
 .apt_generated
 .classpath
@@ -20,7 +20,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+Screenshots/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -30,7 +30,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+Reports/
 ### VS Code ###
 .vscode/
 
