@@ -5,7 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class loginTests extends Base {
+public class EndToEndShoppingTest extends Base {
     //Login Page Test1//
     public void enterUsernameTests() {
         loginPage.enterUsername(ReadData.username);
