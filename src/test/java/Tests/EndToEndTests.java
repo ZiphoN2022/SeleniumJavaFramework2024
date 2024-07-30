@@ -116,6 +116,18 @@ public class EndToEndTests extends Base {
         itemsOverviewPage.verifyConfirmationOrderText();
         takesScreenshots.takesSnapShot(driver,"Order Confirmed");
     }
+    @Test(dependsOnMethods = "verifyConfirmationOrderText")
+    public void clickBurgerMenu(){
+        logoutPage.clickBurgerMenu();
+        takesScreenshots.takesSnapShot(driver,"Burger Menu");
+
+    }
+    @Test(dependsOnMethods = "clickBurgerMenu")
+    public void clickLogout(){
+        logoutPage.clickLogout();
+        takesScreenshots.takesSnapShot(driver,"Logged Out");
+
+    }
 
 
 }

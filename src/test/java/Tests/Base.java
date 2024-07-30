@@ -19,13 +19,13 @@ public class Base {
     TakesScreenshots takesScreenshots = new TakesScreenshots();
 
     CartPage cartPage =PageFactory.initElements(driver, CartPage.class);
-    TakesScreenshots takesScreenshot = new TakesScreenshots();
+
+    LogoutPage logoutPage = PageFactory.initElements(driver,LogoutPage.class);
 
     CheckoutPage checkoutPage =PageFactory.initElements(driver, CheckoutPage.class);
-    //TakesScreenshots takesScreenshots = new TakesScreenshots();
 
     ItemsOverviewPage itemsOverviewPage =PageFactory.initElements(driver, ItemsOverviewPage.class);
-    //TakesScreenshots takesScreenshots = new TakesScreenshots();
+
 
 
     ReadData readData;
