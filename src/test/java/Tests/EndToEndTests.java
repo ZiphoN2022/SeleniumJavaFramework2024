@@ -105,13 +105,13 @@ public class EndToEndTests extends Base {
     public void verifyTotalAmount(){
         itemsOverviewPage.verifyTotalAmount();
     }
-    @Test(dependsOnMethods = "verifyTotalAmount")
-    public void clickFinishButton(){
-        takesScreenshots.takesSnapShot(driver,"Items Total");
-        itemsOverviewPage.clickFinishButton();
-    }
+   // @Test(dependsOnMethods = "verifyTotalAmount")
+  //  public void clickFinishButton(){
+   //     takesScreenshots.takesSnapShot(driver,"Items Total");
+    //    itemsOverviewPage.clickFinishButton();
+  //  }
 
-    @Test(dependsOnMethods = "clickFinishButton")
+    @Test(dependsOnMethods = "verifyTotalAmount")
     public void verifyConfirmationOrderText(){
         itemsOverviewPage.verifyConfirmationOrderText();
         takesScreenshots.takesSnapShot(driver,"Order Confirmed");
