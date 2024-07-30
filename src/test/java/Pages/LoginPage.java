@@ -46,12 +46,8 @@ public class LoginPage {
     }
 
     public void verifyErrorMessageInLogin() {
-
         new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(loginError_xpath));
         loginError_xpath.isDisplayed();
     }
-
-
-
 
 }

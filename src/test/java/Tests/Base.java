@@ -1,7 +1,6 @@
 package Tests;
 
-import Pages.HomePage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -12,11 +11,12 @@ import static Utils.ReadData.*;
 public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
-
     final WebDriver driver=browserFactory.startBrowser("chrome","https://www.saucedemo.com/");
     LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
-
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
+    ShoppingCartPage shoppingCartPage = PageFactory.initElements(driver, ShoppingCartPage.class );
+    CheckOutInformationPage checkOutInformationPage = PageFactory.initElements(driver, CheckOutInformationPage.class );
+    CheckOutOverviewPage checkOutOverviewPage = PageFactory.initElements(driver, CheckOutOverviewPage.class );
     TakesScreenshots takesScreenshots = new TakesScreenshots();
 
     ReadData readData;
@@ -29,6 +29,10 @@ public class Base {
         }
     }
 
-
+    @Test
+    public void test1 (){
+        System.out.println(username);
+        System.out.println(password);
+    }
 
 }

@@ -7,8 +7,8 @@ public class generateTestData {
     static Faker faker = new Faker();
 
     public static String firstName = faker.name().fullName();
+    public static String lastName = faker.address().lastName();
     public static String zipcode = faker.address().zipCode();
-//    public static String zipcode = faker.address().zipCode();
     public static String number = faker.app().name();
 
 

@@ -11,7 +11,10 @@ import java.io.IOException;
 public class ReadData {
 
     static String testDataDir = System.getProperty("user.dir") + "/src/test/java/TestData/TestData.xlsx";
-
+    @Test
+    public void test(){
+        System.out.println(testDataDir);
+    }
     static FileInputStream fileInputStream;
 
     static {
@@ -40,5 +43,10 @@ public class ReadData {
 
     public static String username =sheet.getRow(1).getCell(0).getStringCellValue();
     public static String password =sheet.getRow(1).getCell(1).getStringCellValue();
+    @Test
+    public void test1 (){
+        System.out.println(username);
+        System.out.println(password);
+    }
 
 }
