@@ -94,12 +94,7 @@ public class loginTests extends Base {
 
     @Test(dependsOnMethods = "verifyItemsInCheckout")
     public void verifyItemTotalPlusTaxEqualsToTotal(){
-        try {
-            checkoutPage.verifyItemTotalPlusTaxEqualsToTotal();
-            checkoutPage.finishBtn();
-        } catch (Exception e) {
-            checkoutPage.cancelBtn();
-        }
+        checkoutPage.verifyItemTotalPlusTaxEqualsToTotal();
     }
 
     @Test(dependsOnMethods = "verifyItemTotalPlusTaxEqualsToTotal")

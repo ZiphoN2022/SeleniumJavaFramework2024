@@ -79,6 +79,13 @@ public class CheckoutPage extends generateTestData {
         Assert.assertNotEquals(numberOfItems,0);
     }
 
+    public void finishBtn(){
+        finish_xpath.click();
+    }
+    public void cancelBtn(){
+        cancel_xpath.click();
+    }
+
     public void verifyItemTotalPlusTaxEqualsToTotal(){
 
         String ActualSubTotal = actualSubTotal_xpath.getText();
@@ -92,16 +99,16 @@ public class CheckoutPage extends generateTestData {
         String ActualSummary_total_label = actualSummary_total_label_xpath.getText();
         double ActualSummary_total_labelConveted = Double.parseDouble(ActualSummary_total_label.substring(8));
 
-        Assert.assertEquals(ActualSummary_total_labelConveted, ActualSubTotalWithTax);
-    }
+        //Assert.assertEquals(ActualSummary_total_labelConveted, ActualSubTotalWithTax);
 
-    public void finishBtn(){
-        finish_xpath.click();
+        if(ActualSummary_total_labelConveted == ActualSubTotalWithTax){
+            finishBtn();
+            Assert.assertTrue(true);
+        }else{
+            cancelBtn();
+            Assert.fail();
+        }
     }
-    public void cancelBtn(){
-        cancel_xpath.click();
-    }
-
 
     public void checkoutComplete(){
         String checkoutPageTitle = checkoutComplete_xpath.getText();

@@ -25,7 +25,7 @@ public class HomePage {
     WebElement addLabsBikeLight_xpath;
 
     @FindBy(xpath = "//a[@class='shopping_cart_link'][contains(.,'2')]")
-    WebElement clickShoppingCart_xpath;
+    WebElement shoppingCart_xpath;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -44,14 +44,12 @@ public class HomePage {
     }
 
     public void verifyProductsAddToCart(){
-        int numberOfProducts = Integer.parseInt(clickShoppingCart_xpath.getText());
+        int numberOfProducts = Integer.parseInt(shoppingCart_xpath.getText());
         Assert.assertNotEquals(numberOfProducts,0);
-
     }
 
     public void navigateToShoppingCart(){
-        clickShoppingCart_xpath.click();
+        shoppingCart_xpath.click();
     }
-
 
 }
