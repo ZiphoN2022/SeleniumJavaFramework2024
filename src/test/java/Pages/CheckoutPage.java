@@ -38,6 +38,22 @@ public class CheckoutPage extends generateTestData {
     @FindBy(xpath = "//div[@class='summary_total_label'][contains(.,'Total: $43.18')]")
     WebElement actualSummary_total_label_xpath;
 
+    @FindBy(xpath = "//button[contains(@id,'finish')]")
+    WebElement finish_xpath;
+
+    @FindBy(xpath = "//button[contains(@id,'cancel')]")
+    WebElement cancel_xpath;
+
+    @FindBy(xpath = "//span[@class='title'][contains(.,'Checkout: Complete!')]")
+    WebElement checkoutComplete_xpath;
+
+    @FindBy(xpath = "//button[contains(@id,'react-burger-menu-btn')]")
+    WebElement burgerMenu_xpath;
+
+    @FindBy(xpath = "//a[contains(@id,'link')][@class='bm-item menu-item'][contains(.,'Logout')]")
+    WebElement logout_xpath;
+
+
     public void verifyCheckoutInfo(){
         String checkoutInfo = checkoutInfo_xpath.getText();
         Assert.assertEquals(checkoutInfo, "Checkout: Your Information");
@@ -79,6 +95,24 @@ public class CheckoutPage extends generateTestData {
         Assert.assertEquals(ActualSummary_total_labelConveted, ActualSubTotalWithTax);
     }
 
+    public void finishBtn(){
+        finish_xpath.click();
+    }
+    public void cancelBtn(){
+        cancel_xpath.click();
+    }
 
+
+    public void checkoutComplete(){
+        String checkoutPageTitle = checkoutComplete_xpath.getText();
+        Assert.assertEquals(checkoutPageTitle,"Checkout: Complete!");
+    }
+
+    public void clickBurgerMenu(){
+        burgerMenu_xpath.click();
+    }
+    public void clickLogout(){
+        logout_xpath.click();
+    }
 
 }

@@ -1,6 +1,5 @@
 package Tests;
 
-import Pages.HomePage;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -95,17 +94,26 @@ public class loginTests extends Base {
 
     @Test(dependsOnMethods = "verifyItemsInCheckout")
     public void verifyItemTotalPlusTaxEqualsToTotal(){
-        checkoutPage.verifyItemTotalPlusTaxEqualsToTotal();
+        try {
+            checkoutPage.verifyItemTotalPlusTaxEqualsToTotal();
+            checkoutPage.finishBtn();
+        } catch (Exception e) {
+            checkoutPage.cancelBtn();
+        }
     }
 
+    @Test(dependsOnMethods = "verifyItemTotalPlusTaxEqualsToTotal")
+    public void verifyCheckoutComplete(){
+        checkoutPage.checkoutComplete();
+    }
 
+    @Test(dependsOnMethods = "verifyCheckoutComplete")
+    public void loggingOut(){
+        checkoutPage.clickBurgerMenu();
+        awaitMethod();
+        checkoutPage.clickLogout();
+    }
 
-
-
-
-
-
-    //ToDo read data from faker library
 
     @AfterTest
     public void closeBrowser() {
