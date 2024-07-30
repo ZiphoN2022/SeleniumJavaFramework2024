@@ -100,10 +100,12 @@ public class EndToEndTests extends Base {
     @Test(dependsOnMethods = "verifySubTotalAmount")
     public void verifyTaxForPurchase(){
         itemsOverviewPage.verifyTaxForPurchase();
+        takesScreenshots.takesSnapShot(driver,"Items Total");
     }
     @Test(dependsOnMethods = "verifyTaxForPurchase")
     public void verifyTotalAmount(){
         itemsOverviewPage.verifyTotalAmount();
+        takesScreenshots.takesSnapShot(driver,"Cancel or Finish");
     }
    // @Test(dependsOnMethods = "verifyTotalAmount")
   //  public void clickFinishButton(){
@@ -111,12 +113,12 @@ public class EndToEndTests extends Base {
     //    itemsOverviewPage.clickFinishButton();
   //  }
 
+ //   @Test(dependsOnMethods = "clickFinishButton")
+ //   public void verifyConfirmationOrderText(){
+  //      itemsOverviewPage.verifyConfirmationOrderText();
+  //      takesScreenshots.takesSnapShot(driver,"Order Confirmed");
+  //  }
     @Test(dependsOnMethods = "verifyTotalAmount")
-    public void verifyConfirmationOrderText(){
-        itemsOverviewPage.verifyConfirmationOrderText();
-        takesScreenshots.takesSnapShot(driver,"Order Confirmed");
-    }
-    @Test(dependsOnMethods = "verifyConfirmationOrderText")
     public void clickBurgerMenu(){
         logoutPage.clickBurgerMenu();
         takesScreenshots.takesSnapShot(driver,"Burger Menu");

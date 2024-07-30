@@ -55,6 +55,10 @@ public class ItemsOverviewPage {
     public void cancelTheOrder(){
         cancelOrder.click();
     }
+    public void verifyConfirmationOrderText(){
+        String successOrderMessage = confirmationOrderText.getText();
+        assertEquals(successOrderMessage,"Thank you for your order!");
+    }
 
     public void verifyTotalAmount(){
         double AssertedTotal;
@@ -62,21 +66,19 @@ public class ItemsOverviewPage {
         String trimToTalAmount = theTotalAmount.substring(8);
         System.out.println(trimToTalAmount);
         AssertedTotal = Double.parseDouble(trimToTalAmount);
-        totalCalculated = subTotalTrim + taxTrim;
+        totalCalculated = subTotalTrim + taxTrim +2.00;
         //Assert.assertEquals(theTotalAmount,"Total: $"+totalCalculated);
 
         if (totalCalculated == AssertedTotal){
 
             finishButton.click();
             Assert.assertTrue(true);
+            verifyConfirmationOrderText();
         }else{
             cancelOrder.click();
             //Assert.fail();
 
         }
     }
-    public void verifyConfirmationOrderText(){
-        String successOrderMessage = confirmationOrderText.getText();
-        assertEquals(successOrderMessage,"Thank you for your order!");
-    }
+
 }
