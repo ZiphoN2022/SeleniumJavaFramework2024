@@ -82,6 +82,10 @@ public class loginTests extends Base {
         awaitMethod();
     }
 
+
+
+    //ToDo calculate tax and finish order
+
     @AfterTest
     public void closeBrowser() {
         driver.quit();
