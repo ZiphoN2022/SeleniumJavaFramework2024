@@ -109,9 +109,10 @@ public class EndToEndShoppingTest extends Base {
         checkOutOverviewPage.verifyCartItemsMatchOverviewItems();
         takesScreenshots.takesSnapShot(driver, "Verify Checkout Overview Items");
     }
- //   @Test (dependsOnMethods = "verifyCartItemsOnCheckAreDisplayedOutOverviewPage")
-//    public void VerifyItemTotalPlusTaxEqualsTotal (){
-//    }
+    @Test (dependsOnMethods = "verifyCartItemsOnCheckAreDisplayedOutOverviewPage")
+    public void verifyItemTotalPlusTaxEqualsTotal () throws InterruptedException {
+        checkOutOverviewPage.verifyItemTotalPlusTaxEqualsFinalTotal();
+    }
 
 
 
