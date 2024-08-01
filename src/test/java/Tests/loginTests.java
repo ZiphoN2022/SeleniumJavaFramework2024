@@ -1,6 +1,6 @@
 package Tests;
 
-import Pages.HomePage;
+import Utils.ReadData;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -9,24 +9,24 @@ public class loginTests extends Base {
 
 
     public void enterUsernameTests() {
-        loginPage.enterUsername(readData.username);
+        loginPage.enterUsername(ReadData.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword(readData.password);
+        loginPage.enterPassword(ReadData.password);
     }
 
     @Test(dependsOnMethods = "enterPasswordTests")
     public void clickLoginButtonTests() {
-        takesScreenshots.takesSnapShot(driver,"Login Page");
+        takesScreenshots.takesSnapShot(driver, "Login Page");
         loginPage.clickLogin();
     }
 
     @Test(dependsOnMethods = "clickLoginButtonTests")
     public void verfyProductIsDisolayed() {
         homePage.verifyProductTitleIsDisplayed();
-        takesScreenshots.takesSnapShot(driver,"Home Page");
+        takesScreenshots.takesSnapShot(driver, "Home Page");
     }
 
     //ToDo read data from faker library
