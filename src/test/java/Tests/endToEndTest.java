@@ -29,19 +29,32 @@ public class endToEndTest extends Base {
     //adding product to the cart
     @Test(dependsOnMethods = "clickLoginButtonTests")
     public void clickAddToCartOnProductTest(){
-
         ProductsPage.addItemToCart("add-to-cart-sauce-labs-backpack");
     }
 
-    @Test(dependsOnMethods = "shopping_cart_con")
-    public void clickCartButton(){
-        productsPage.clickCartButton;
+    @Test(dependsOnMethods = "clickAddToCartOnProductTest")
+    public void verifyItemsAddedToCartTest(){
+        productsPage.validateItemIsAddedToCart("1");
+        takesScreenshots.takesSnapShot(driver, "addingProductsToCart", screenShotFolderPath);
     }
 
-    @Test(dependsOnMethods = "checkout")
-    public void clickCheckoutButton(){
-        cartPage.clickCheckoutButton;
+    //clicking the cart link to move to the cart page
+    @Test(dependsOnMethods = "clickAddToCartOnProductTest")
+    public void clickShoppingCartLinkTest(){
+        ProductsPage.clickShoppingCartLink();
     }
+
+    //verify that the item added on the inventory page is on the cart page
+    @Test(dependsOnMethods = "clickAddToCartOnProductTest")
+    public void verifyItemAddedToTheCartPage(){
+        cartPage.verifyProductItemIsOnTheCartPage("Sauce Labs Bike Light");
+        takesScreenshots.takesSnapShot(driver, "itemOnCartPage", screenShotFolderPath);
+
+    }
+
+
+    }
+
 
 
 }

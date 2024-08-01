@@ -27,10 +27,10 @@ public class ProductsPage {
         this.driver=driver;
     }
 
-    public void addItemToCart(String product){
+    public static void addItemToCart(String product){
         driver.findElement(By.id(product)).click();
     }
-    public void clickShoppingCartLink(){
+    public static void clickShoppingCartLink(){
         cartLink_xpath.click();
     }
     public void verifyProductTitleIsDisplaying(){
@@ -41,7 +41,7 @@ public class ProductsPage {
 
     public void validateItemIsAddedToCart(String itemCount){
         String cartBadgeItemCount = shoppingCartIcon_xpath.getText();
-        Assert.assertEquals();
+        Assert.assertEquals( );
     }
 
 

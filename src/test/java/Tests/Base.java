@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.CartPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.ProductsPage;
@@ -19,9 +20,9 @@ public class Base {
 
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
     TakesScreenshots takesScreenshots = new TakesScreenshots();
-
     ProductsPage productsPage =PageFactory.initElements(driver, ProductsPage.class);
-    TakesScreenshots takesScreenshots1 = new TakesScreenshots();
+    CartPage cartPage =PageFactory.initElements(driver,CartPage.class);
+
 
     ReadData readData;
 
