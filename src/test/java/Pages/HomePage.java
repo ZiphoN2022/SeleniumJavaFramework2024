@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -19,13 +18,14 @@ public class HomePage {
     WebElement productTitle_xpath;
 
     @FindBy(xpath = "//button[contains(@id,'add-to-cart-sauce-labs-backpack')]")
-    WebElement addLabsBackpack_xpath;
+    WebElement backpackItem;
+    @FindBy(xpath = "(//div[contains(@class,'inventory_item_name ')])[1]")WebElement backpackItemInfo;
 
     @FindBy(xpath = "//button[contains(@id,'add-to-cart-sauce-labs-bike-light')]")
-    WebElement addLabsBikeLight_xpath;
+    WebElement bikeLightItem;
 
-    @FindBy(xpath = "//a[@class='shopping_cart_link'][contains(.,'2')]")
-    WebElement clickShoppingCart_xpath;
+    @FindBy(xpath = "//a[contains(@class,'shopping_cart_link')]")
+    WebElement cartIcon;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -37,21 +37,23 @@ public class HomePage {
         String productTitle = productTitle_xpath.getText();
         Assert.assertEquals(productTitle, "Products");
     }
-
-    public void addProducts(){
-        addLabsBackpack_xpath.click();
-        addLabsBikeLight_xpath.click();
+    public void verifyBackpackItemIsAddedToCart(){
+        backpackItem.click();
+    }
+    public void getBackpackItemInformation(){
+        String backpackInformation = backpackItemInfo.getText();
+        Assert.assertEquals(backpackInformation,"Sauce Labs Backpack");
+    }
+    public void verifyBikeLightItemIsAddedToCart(){
+        bikeLightItem.click();
+    }
+    public void verifyNumberOfItemsInCart(){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(cartIcon));
+        String numberOfItems = cartIcon.getText();
+        Assert.assertEquals(numberOfItems,"2");
     }
 
-    public void verifyProductsAddToCart(){
-        int numberOfProducts = Integer.parseInt(clickShoppingCart_xpath.getText());
-        Assert.assertNotEquals(numberOfProducts,0);
-
+    public  void clickCartIcon(){
+        cartIcon.click();
     }
-
-    public void navigateToShoppingCart(){
-        clickShoppingCart_xpath.click();
-    }
-
-
 }

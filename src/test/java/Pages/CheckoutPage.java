@@ -1,45 +1,43 @@
 package Pages;
 
-import Utils.generateTestData;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class CheckoutPage extends generateTestData {
+import static Utils.generateTestData.*;
 
-    WebDriver driver;
+public class CheckoutPage {
 
     @FindBy(xpath = "//span[@class='title'][contains(.,'Checkout: Your Information')]")
-    WebElement checkoutInfo_xpath;
+    WebElement checkoutPageTitle;
 
     @FindBy(xpath = "//input[contains(@id,'first-name')]")
-    WebElement firtName_xpath;
+    WebElement shippingName;
 
     @FindBy(xpath = "//input[contains(@id,'last-name')]")
-    WebElement lastName_xpath;
+    WebElement shippingSurname;
 
     @FindBy(xpath = "//input[contains(@id,'postal-code')]")
-    WebElement postal_xpath;
+    WebElement shippingAddress;
 
     @FindBy(xpath = "//input[contains(@id,'continue')]")
-    WebElement continue_xpath;
+    WebElement shippingContinueButton;
 
-
-    public void verifyCheckoputInfo(){
-        String checkoutInfo = checkoutInfo_xpath.getText();
-        Assert.assertEquals(checkoutInfo, "Checkout: Your Information");
+    public void verifyCheckoutPageTitle(){
+        String checkoutTitle = checkoutPageTitle.getText();
+        Assert.assertEquals(checkoutTitle,"Checkout: Your Information");
     }
-
-    public void addCheckoutInfo(){
-        firtName_xpath.sendKeys(firstName);
-        lastName_xpath.sendKeys(lastname);
-        postal_xpath.sendKeys(zipcode);
+    public void enterShippingName(){
+        shippingName.sendKeys(firstName);
     }
-
-    public void continueBtn(){
-        continue_xpath.click();
+    public void enterShippingSurname(){
+        shippingSurname.sendKeys(Surname);
     }
-
+    public void enterShippingAddress(){
+        shippingAddress.sendKeys(zipcode);
+    }
+    public void clickShippingContinueButton(){
+        shippingContinueButton.click();
+    }
 
 }

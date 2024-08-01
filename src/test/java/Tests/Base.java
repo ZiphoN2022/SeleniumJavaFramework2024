@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.CartPage;
-import Pages.CheckoutPage;
-import Pages.HomePage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -21,9 +18,15 @@ public class Base {
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
     TakesScreenshots takesScreenshots = new TakesScreenshots();
 
-    CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+    CartPage cartPage =PageFactory.initElements(driver, CartPage.class);
 
-    CheckoutPage checkOutPage = PageFactory.initElements(driver, CheckoutPage.class);
+    LogoutPage logoutPage = PageFactory.initElements(driver,LogoutPage.class);
+
+    CheckoutPage checkoutPage =PageFactory.initElements(driver, CheckoutPage.class);
+
+    ItemsOverviewPage itemsOverviewPage =PageFactory.initElements(driver, ItemsOverviewPage.class);
+
+
 
     ReadData readData;
 
@@ -31,14 +34,6 @@ public class Base {
         try {
             readData = new ReadData();
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void awaitMethod(){
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
