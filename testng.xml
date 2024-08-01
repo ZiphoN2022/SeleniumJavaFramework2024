@@ -6,7 +6,11 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="Sauce Demo">
         <classes>
-            <class name="Tests.loginTests"></class>
+<!--            <class name="Tests.loginTests"></class>-->
+<!--            <class name="Tests.YourCartTests"></class>-->
+<!--            <class name="Tests.YourCartTests"></class>-->
+            <class name="Tests.PersonalDetailsTest"></class>
+
         </classes>
     </test>
 </suite>

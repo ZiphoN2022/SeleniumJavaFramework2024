@@ -17,6 +17,15 @@ public class HomePage {
     @FindBy(xpath = "//span[@class='title'][contains(.,'Products')]")
     WebElement productTitle_xpath;
 
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement AddToCartButton_Id;
+
+    @FindBy(xpath = "//a[@class='shopping_cart_link'][contains(.,'1')]")
+    WebElement ItemInCart_xpath;
+
+    @FindBy(xpath = "//span[contains(@class,'shopping_cart_badge')]")
+    WebElement CartTrolley_xpath;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -27,4 +36,22 @@ public class HomePage {
         String productTitle = productTitle_xpath.getText();
         Assert.assertEquals(productTitle, "Products");
     }
+    public void clickButtonAddToCart() {
+        AddToCartButton_Id.click();
+    }
+    public void verifyItemWasAddedToTheCart()
+    {
+        int NoOfItemsInTheCart = Integer.parseInt(ItemInCart_xpath.getText());
+
+        if(NoOfItemsInTheCart>0)
+        {
+            CartTrolley_xpath.click();
+            System.out.println("1 Item is added to the cart.");
+        }
+        else {
+            System.out.println("The cart is empty.");
+        }
+    }
+
 }
+

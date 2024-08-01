@@ -1,12 +1,10 @@
 package Tests;
 
-import Pages.HomePage;
-import org.testng.annotations.AfterTest;
+import Pages.YourCartPage;
 import org.testng.annotations.Test;
 
 @Test
-public class loginTests extends Base {
-
+public class YourCartTests extends Base {
 
     public void enterUsernameTests() {
         loginPage.enterUsername(readData.username);
@@ -19,24 +17,37 @@ public class loginTests extends Base {
 
     @Test(dependsOnMethods = "enterPasswordTests")
     public void clickLoginButtonTests() {
-        takesScreenshots.takesSnapShot(driver,"Login Page");
+        takesScreenshots.takesSnapShot(driver, "Login Page");
         loginPage.clickLogin();
     }
 
     @Test(dependsOnMethods = "clickLoginButtonTests")
     public void verifyProductIsDisplayed() {
         homePage.verifyProductTitleIsDisplayed();
-        takesScreenshots.takesSnapShot(driver,"Home Page");
+        takesScreenshots.takesSnapShot(driver, "Home Page");
     }
+
     @Test(dependsOnMethods = "verifyProductIsDisplayed")
     public void clickAddToCartButtonTests() {
         homePage.clickButtonAddToCart();
         takesScreenshots.takesSnapShot(driver, "Add To Cart");
     }
+
     @Test(dependsOnMethods = "clickAddToCartButtonTests")
     public void verifyCartIsNotEmpty() {
         homePage.verifyItemWasAddedToTheCart();
 
+    }
+
+    @Test(dependsOnMethods = "verifyCartIsNotEmpty")
+    public void verifyTitleYourCartIsDisplayed() {
+        yourcartpage.verifyYourCart();
+        takesScreenshots.takesSnapShot(driver, "Your Cart");
+    }
+
+    @Test(dependsOnMethods = "verifyTitleYourCartIsDisplayed")
+    public void clickTheButtonCheckout() {
+        yourcartpage.clickButtonCheckout();
     }
 
     //ToDo read data from faker library
@@ -45,4 +56,7 @@ public class loginTests extends Base {
 //    public void closeBrowser() {
 //        driver.quit();
 //    }
+
 }
+
+

@@ -2,12 +2,13 @@ package Tests;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.PersonalDetailsPage;
+import Pages.YourCartPage;
 import Utils.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Test;
+
 import java.io.IOException;
-import static Utils.ReadData.*;
 
 public class Base {
 
@@ -17,6 +18,8 @@ public class Base {
     LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
 
     HomePage homePage =PageFactory.initElements(driver, HomePage.class);
+    YourCartPage yourcartpage =PageFactory.initElements(driver, YourCartPage.class);
+    PersonalDetailsPage personaldetailspage =PageFactory.initElements(driver, PersonalDetailsPage.class);
     TakesScreenshots takesScreenshots = new TakesScreenshots();
 
     ReadData readData;
