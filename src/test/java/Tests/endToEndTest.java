@@ -1,5 +1,7 @@
 package Tests;
 
+import Pages.CartPage;
+import Pages.ProductsPage;
 import org.testng.annotations.Test;
 
 public class endToEndTest extends Base {
@@ -24,14 +26,22 @@ public class endToEndTest extends Base {
         takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
-    @Test(dependsOnMethods = "add-to-cart-sauce-labs-backpack")
-    public void clickAddButton(){
-        productsPage.clickAddProduct();
+    //adding product to the cart
+    @Test(dependsOnMethods = "clickLoginButtonTests")
+    public void clickAddToCartOnProductTest(){
+
+        ProductsPage.addItemToCart("add-to-cart-sauce-labs-backpack");
     }
 
-    @Test(dependsOnMethods = "shopping_cart_container")
+    @Test(dependsOnMethods = "shopping_cart_con")
     public void clickCartButton(){
-        productsPage.clickCart;
+        productsPage.clickCartButton;
     }
+
+    @Test(dependsOnMethods = "checkout")
+    public void clickCheckoutButton(){
+        cartPage.clickCheckoutButton;
+    }
+
 
 }
