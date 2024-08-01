@@ -15,7 +15,7 @@ public class generateTestData {
     @Test
     public void test(){
         System.out.println(number);
-        System.out.println(zipcode);
+        System.out.println(zipcode);Cc/c//vv/hjhhhfififih ghgguggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
     }
 
 
