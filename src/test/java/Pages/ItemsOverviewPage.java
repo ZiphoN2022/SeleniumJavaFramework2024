@@ -40,6 +40,7 @@ public class ItemsOverviewPage {
         String subTotal = subTotalAmount.getText();
         System.out.println(subTotal);
         String subTotalString = subTotal.substring(13);
+      //  String subTotalString1 = subTotal.replace("Item total: $","");
         subTotalTrim = Double.parseDouble(subTotalString);
         System.out.println(subTotalTrim);
     }
@@ -47,13 +48,8 @@ public class ItemsOverviewPage {
         String tax = taxForPurchase.getText();
         System.out.println(tax);
         String subTaxString = tax.substring(6);
+        //String subTaxString1 = tax.replace("Tax: $","");
         taxTrim = Double.parseDouble(subTaxString);
-    }
-    public void clickFinishButton(){
-        finishButton.click();
-    }
-    public void cancelTheOrder(){
-        cancelOrder.click();
     }
     public void verifyConfirmationOrderText(){
         String successOrderMessage = confirmationOrderText.getText();
@@ -66,17 +62,17 @@ public class ItemsOverviewPage {
         String trimToTalAmount = theTotalAmount.substring(8);
         System.out.println(trimToTalAmount);
         AssertedTotal = Double.parseDouble(trimToTalAmount);
-        totalCalculated = subTotalTrim + taxTrim +2.00;
+        totalCalculated = subTotalTrim + taxTrim;
         //Assert.assertEquals(theTotalAmount,"Total: $"+totalCalculated);
 
         if (totalCalculated == AssertedTotal){
 
             finishButton.click();
-            Assert.assertTrue(true);
             verifyConfirmationOrderText();
+            Assert.assertTrue(true);
         }else{
             cancelOrder.click();
-            //Assert.fail();
+            Assert.fail();
 
         }
     }
