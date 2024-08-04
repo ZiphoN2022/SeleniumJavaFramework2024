@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -36,7 +37,45 @@ public class ItemsPage {
         assertEquals(overviewPage,"checkout: Overview");
     }
 
-    public void verifySubTotalAmount()
+    public void verifySubTotalAmount(){
+        String subTotal = subTotalAmount.getText();
+        System.out.println(subTotal);
+        String subTotalString = subTotal.substring(13);
+        subTotalTrim = Double.parseDouble(subTotalString);
+        System.out.println(subTotalTrim);
+    }
+
+    public void verifyTaxForPurchase(){
+        String tax =taxForPurchase.getText();
+        System.out.println(tax);
+        String subTaxString = tax.substring(6);
+        taxTrim = Double.parseDouble(subTaxString);
+    }
+
+    public void verifyTotalAmount() {
+        String theTotalAmount = totalAmount.getText();
+        totalCalculated = subTotalTrim + taxTrim;
+        double AssertedTotal;
+        Assert.assertEquals(theTotalAmount, "Total: $" + totalCalculated);
+
+        if( totalCalculated == totalCalculated ){
+            finishButton.click();
+
+        }
+    }
+        public void clickFinishButton(){
+            finishButton.click();
+        }
+        public void cancelTheOrder(){
+            cancelTheOrder.click();
+        }
+
+        public void verifyConfirmationOrderText(){
+            String successOrderMessage = confirmationOrderText.getText();
+            assertEquals(successOrderMessage, "Thank you for your order!");
+        }
+
+    }
 
 
 }
