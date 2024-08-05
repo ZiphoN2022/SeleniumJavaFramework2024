@@ -19,6 +19,16 @@ public class Base {
     CheckOutOverviewPage checkOutOverviewPage = PageFactory.initElements(driver, CheckOutOverviewPage.class );
     TakesScreenshots takesScreenshots = new TakesScreenshots();
 
+    CartPage cartPage =PageFactory.initElements(driver, CartPage.class);
+
+    LogoutPage logoutPage = PageFactory.initElements(driver,LogoutPage.class);
+
+    CheckoutPage checkoutPage =PageFactory.initElements(driver, CheckoutPage.class);
+
+    ItemsOverviewPage itemsOverviewPage =PageFactory.initElements(driver, ItemsOverviewPage.class);
+
+
+
     ReadData readData;
 
     {
