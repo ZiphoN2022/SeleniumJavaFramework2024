@@ -70,22 +70,24 @@ public class CheckOutOverviewPage {
 
         if (totalP == (itemTx + itemT)) {
             finishButton_xpath.click();
-            Thread.sleep(5000);
+            sleep(3000);
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(orderDispatched_xpath));
             orderDispatched_xpath.isDisplayed();
             String thanksforshopping = driver.findElement(By.xpath("//h2[@class='complete-header'][contains(.,'Thank you for your order!')]")).getText();
             Assert.assertEquals(thanksforshopping,"Thank you for your order!");
-            Thread.sleep(5000);
+            sleep(3000);
             System.out.println("Shopping is Completed!!.");
         } else {
             System.out.println("Go back to fix cart items.");
             cancelButton_xpath.click();
-            Thread.sleep(5000);
+            sleep(3000);
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(burgerMenu_xpath));
             burgerMenu_xpath.isDisplayed();
+            sleep(3000);
             burgerMenu_xpath.click();
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(logoutButton_xpath));
             logoutButton_xpath.isDisplayed();
+            sleep(3000);
             logoutButton_xpath.click();
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOf(homePage_xpath));
             homePage_xpath.isDisplayed();

@@ -37,7 +37,7 @@ public class EndToEndShoppingTest extends Base {
     @Test(dependsOnMethods = "addItemsBackPackToCart")
     public void addItemsBoltTshirtToCart() {
         shoppingCartPage.addBoltTshirt();
-        takesScreenshots.takesSnapShot(driver, "Added To Cart");
+        takesScreenshots.takesSnapShot(driver, "Add Items To Cart");
     }
 
     @Test(dependsOnMethods = "addItemsBoltTshirtToCart")
@@ -48,7 +48,7 @@ public class EndToEndShoppingTest extends Base {
     @Test(dependsOnMethods = "navigateToCart")
     public void verifyCartItemsCorrect() {
         shoppingCartPage.verifyCartItems();
-        takesScreenshots.takesSnapShot(driver, "Verify Cart Items");
+        takesScreenshots.takesSnapShot(driver, "Verify Cart Items Added");
     }
 
     @Test(dependsOnMethods = "verifyCartItemsCorrect")
@@ -112,6 +112,8 @@ public class EndToEndShoppingTest extends Base {
     @Test (dependsOnMethods = "verifyCartItemsOnCheckAreDisplayedOutOverviewPage")
     public void verifyItemTotalPlusTaxEqualsTotal () throws InterruptedException {
         checkOutOverviewPage.verifyItemTotalPlusTaxEqualsFinalTotal();
+        takesScreenshots.takesSnapShot(driver, "Back to Home Page");
+
     }
 
 
